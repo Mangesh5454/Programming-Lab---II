@@ -1,0 +1,163 @@
+# Simple GUI Window
+
+import tkinter as tk 
+root = tk.Tk() 
+root.title("Simple GUI Window") 
+root.geometry("300x200") 
+label = tk.Label(root, text="Welcome to Python GUI", font=("Arial", 14)) 
+label.pack(pady=40) 
+button = tk.Button(root, text="Close", command=root.destroy) 
+button.pack() 
+root.mainloop() 
+
+# GUI Calculator
+
+import tkinter as tk 
+def press(num): 
+    current = entry.get() 
+    entry.delete(0, tk.END) 
+    entry.insert(0, current + str(num))  
+def clear(): 
+    entry.delete(0, tk.END) 
+def calculate(): 
+    try: 
+        result = eval(entry.get()) 
+        entry.delete(0, tk.END) 
+        entry.insert(0, str(result)) 
+    except: 
+        entry.delete(0, tk.END) 
+        entry.insert(0, "Error") 
+root = tk.Tk() 
+root.title("Calculator") 
+root.geometry("300x350") 
+entry = tk.Entry(root, width=20, font=("Arial", 18), bd=5, justify="right") 
+entry.grid(row=0, column=0, columnspan=4, pady=10) 
+buttons = [ 
+    '7', '8', '9', '/', 
+    '4', '5', '6', '*', 
+    '1', '2', '3', '-', 
+    '0', 'C', '=', '+' 
+] 
+row = 1 
+col = 0 
+for button in buttons: 
+    if button == 'C': 
+        cmd = clear 
+    elif button == '=': 
+        cmd = calculate 
+    else: 
+        cmd = lambda b=button: press(b) 
+    tk.Button(root, text=button, width=5, height=2, font=("Arial", 14), 
+command=cmd).grid(row=row, column=col, padx=5, pady=5) 
+    col += 1 
+    if col > 3: 
+        col = 0 
+        row += 1 
+root.mainloop()
+
+# Student Form GUI
+
+import tkinter as tk
+from tkinter import messagebox
+def submit():
+    info = f"Name: {name_entry.get()}\nRoll No: {roll_entry.get()}\nCourse: {course_entry.get()}"
+    messagebox.showinfo("Student Information", info)
+root = tk.Tk()
+root.title("Student Information Form")
+root.geometry("350x250")
+tk.Label(root, text="Name").grid(row=0, column=0, padx=10, pady=10)
+name_entry = tk.Entry(root)
+name_entry.grid(row=0, column=1)
+tk.Label(root, text="Roll No").grid(row=1, column=0, padx=10, pady=10)
+roll_entry = tk.Entry(root)
+roll_entry.grid(row=1, column=1)
+tk.Label(root, text="Course").grid(row=2, column=0, padx=10, pady=10)
+course_entry = tk.Entry(root)
+course_entry.grid(row=2, column=1)
+tk.Button(root, text="Submit", command=submit).grid(row=3, column=1, pady=20)
+root.mainloop()
+
+# Line Plot
+
+import matplotlib.pyplot as plt 
+x = [1, 2, 3, 4, 5] 
+y = [10, 20, 15, 25, 30] 
+plt.plot(x, y, marker='o') 
+plt.title("Line Plot") 
+plt.xlabel("X-axis") 
+plt.ylabel("Y-axis") 
+plt.grid(True) 
+plt.show()
+
+# Bar Chart
+
+import matplotlib.pyplot as plt 
+subjects = ["Math", "Science", "English", "Computer"] 
+marks = [85, 90, 78, 92] 
+plt.bar(subjects, marks, color="skyblue") 
+plt.title("Bar Chart") 
+plt.xlabel("Subjects") 
+plt.ylabel("Marks") 
+plt.show() 
+
+# Histogram
+
+import matplotlib.pyplot as plt 
+data = [12, 15, 13, 18, 19, 21, 22, 25, 18, 17, 16, 14, 15, 19] 
+plt.hist(data, bins=5, color="orange", edgecolor="black") 
+plt.title("Histogram") 
+plt.xlabel("Value Range") 
+plt.ylabel("Frequency") 
+plt.show()
+
+# Pie Chart
+
+import matplotlib.pyplot as plt 
+labels = ["Python", "Java", "C", "C++"] 
+sizes = [35, 25, 20, 20] 
+plt.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90) 
+plt.title("Pie Chart") 
+plt.show()
+
+# Box Plot
+
+import matplotlib.pyplot as plt 
+data = [12, 15, 14, 10, 18, 22, 19, 25, 17, 16, 14, 13, 21] 
+plt.boxplot(data) 
+plt.title("Box-and-Whisker Plot") 
+plt.ylabel("Values") 
+plt.show() 
+
+# Customize Plot
+
+import matplotlib.pyplot as plt 
+x = [1, 2, 3, 4, 5] 
+y1 = [10, 20, 30, 40, 50] 
+y2 = [8, 16, 24, 32, 40] 
+plt.plot(x, y1, marker='o', color='blue', label='Series 1') 
+plt.plot(x, y2, marker='s', color='red', label='Series 2') 
+plt.title("Customized Plot") 
+plt.xlabel("X-axis") 
+plt.ylabel("Y-axis") 
+plt.legend() 
+plt.grid(True) 
+plt.show()
+
+# Read File and Plot
+
+import matplotlib.pyplot as plt
+x = []
+y = []
+with open("Experiment No. 10/sample.txt", "r") as file:
+    for line in file:
+        a, b = line.split()
+        x.append(int(a))
+        y.append(int(b))
+print(x)
+print(y)
+plt.plot(x, y, marker='o')
+plt.title("Graph from File Data")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.grid(True)
+plt.show()
