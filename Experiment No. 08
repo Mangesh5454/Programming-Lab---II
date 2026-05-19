@@ -1,0 +1,119 @@
+# Class and Object
+
+class Student:
+    def display(self):
+        print("Student Object Created")
+s = Student()
+s.display()
+
+# Constructor
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+    def display(self):
+        print("Name:", self.name)
+name = input("Enter name: ")
+s = Student(name)
+s.display()
+
+# Instance and Class Variables
+
+class Student:
+    school = "ABC"
+    def __init__(self, name):
+        self.name = name
+s = Student(input("Enter name: "))
+print("Name:", s.name)
+print("School:", Student.school)
+
+# Single Inheritance
+
+class A:
+    def show(self):
+        print("Class A")
+class B(A):
+    def display(self):
+        print("Class B")
+obj = B()
+obj.show()
+obj.display()
+
+# Multiple Inheritance
+
+class A:
+    def a(self):
+        print("A")
+class B:
+    def b(self):
+        print("B")
+class C(A, B):
+    pass
+obj = C()
+obj.a()
+obj.b()
+
+# Multilevel Inheritance
+
+class A:
+    def a(self):
+        print("A")
+class B(A):
+    def b(self):
+        print("B")
+class C(B):
+    def c(self):
+        print("C")
+obj = C()
+obj.a()
+obj.b()
+obj.c()
+
+# Method Overriding
+
+class A:
+    def show(self):
+        print("Parent")
+class B(A):
+    def show(self):
+        print("Child")
+obj = B()
+obj.show()
+
+# Area Using Inheritance
+
+class Shape:
+    def area(self):
+        pass
+class Rectangle(Shape):
+    def area(self, l, b):
+        print("Area:", l * b)
+obj = Rectangle()
+l = int(input("Enter length: "))
+b = int(input("Enter breadth: "))
+obj.area(l, b)
+
+# Encapsulation
+
+class Student:
+    def __init__(self):
+        self.__marks = 0
+    def set_marks(self, m):
+        self.__marks = m
+    def get_marks(self):
+        return self.__marks
+s = Student()
+m = int(input("Enter marks: "))
+s.set_marks(m)
+print("Marks:", s.get_marks())
+
+# Polymorphism
+
+class A:
+    def show(self):
+        print("A")
+class B:
+    def show(self):
+        print("B")
+for obj in (A(), B()):
+    obj.show()
