@@ -1,0 +1,98 @@
+# Create and Display a Tuple
+
+n = int(input("Enter number of elements: "))
+t = ()
+for i in range(n):
+    t = t + (int(input("Enter element: ")),)
+print("Tuple:", t)
+
+# Sum and Average of Tuple Elements
+
+n = int(input("Enter number of elements: "))
+t = ()
+for i in range(n):
+    t = t + (int(input("Enter element: ")),)
+total = sum(t)
+avg = total / n
+print("Sum:", total)
+print("Average:", avg)
+
+# Maximum and Minimum in Tuple
+
+n = int(input("Enter number of elements: "))
+t = ()
+for i in range(n):
+    t = t + (int(input("Enter element: ")),)
+print("Maximum:", max(t))
+print("Minimum:", min(t))
+
+# Tuple Packing and Unpacking
+
+a = int(input("Enter first value: "))
+b = int(input("Enter second value: "))
+c = int(input("Enter third value: "))
+t = (a, b, c)
+x, y, z = t
+print("Tuple:", t)
+print("Unpacked values:", x, y, z)
+
+# Convert Tuple into List
+
+n = int(input("Enter number of elements: "))
+t = ()
+for i in range(n):
+    t = t + (int(input("Enter element: ")),)
+lst = list(t)
+print("List:", lst)
+
+# Create and Perform Set Operations
+
+n = int(input("Enter number of elements: "))
+s = set()
+for i in range(n):
+    s.add(int(input("Enter element: ")))
+print("Set:", s)
+
+# Union, Intersection and Difference of Sets
+
+n1 = int(input("Enter elements in first set: "))
+s1 = set()
+for i in range(n1):
+    s1.add(int(input("Enter element: ")))
+n2 = int(input("Enter elements in second set: "))
+s2 = set()
+for i in range(n2):
+    s2.add(int(input("Enter element: ")))
+print("Union:", s1 | s2)
+print("Intersection:", s1 & s2)
+print("Difference (s1 - s2):", s1 - s2)
+
+# Remove Duplicates Using Set
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+unique = list(set(lst))
+print("List without duplicates:", unique)
+
+# Check Membership in Tuple
+
+n = int(input("Enter number of elements: "))
+t = ()
+for i in range(n):
+    t = t + (int(input("Enter element: ")),)
+key = int(input("Enter element to search: "))
+if key in t:
+    print("Element found")
+else:
+    print("Element not found")
+
+# Count Occurrences in Tuple
+
+n = int(input("Enter number of elements: "))
+t = ()
+for i in range(n):
+    t = t + (int(input("Enter element: ")),)
+key = int(input("Enter element to count: "))
+print("Count:", t.count(key))
