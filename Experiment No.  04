@@ -1,0 +1,107 @@
+# Create and Display a List
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+print("List:", lst)
+
+# Sum and Average of List Elements
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+total = sum(lst)
+avg = total / n
+print("Sum:", total)
+print("Average:", avg)
+
+# Maximum and Minimum Element
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+print("Maximum:", max(lst))
+print("Minimum:", min(lst))
+
+# Sort a List
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+lst.sort()
+print("Sorted list:", lst)
+
+# Remove Duplicates from List
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+unique = list(set(lst))
+print("List without duplicates:", unique)
+
+# Search an Element in List
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+key = int(input("Enter element to search: "))
+if key in lst:
+    print("Element found")
+else:
+    print("Element not found")
+
+# Merge Two Lists
+
+n1 = int(input("Enter number of elements for first list: "))
+l1 = []
+for i in range(n1):
+    l1.append(int(input("Enter element: ")))
+n2 = int(input("Enter number of elements for second list: "))
+l2 = []
+for i in range(n2):
+    l2.append(int(input("Enter element: ")))
+merged = l1 + l2
+print("Merged list:", merged)
+
+# Count Even and Odd Numbers
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+even = 0
+odd = 0
+for i in lst:
+    if i % 2 == 0:
+        even += 1
+    else:
+        odd += 1
+print("Even count:", even)
+print("Odd count:", odd)
+
+# Second Largest Element
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+lst = list(set(lst))
+lst.sort()
+print("Second largest:", lst[-2])
+
+# List Slicing
+
+n = int(input("Enter number of elements: "))
+lst = []
+for i in range(n):
+    lst.append(int(input("Enter element: ")))
+print("Original list:", lst)
+print("First 3 elements:", lst[:3])
+print("Last 3 elements:", lst[-3:])
+print("Reversed list:", lst[::-1])
