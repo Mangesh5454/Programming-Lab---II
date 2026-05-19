@@ -1,0 +1,89 @@
+# Write to File
+
+file = open("sample.txt", "w")
+file.write("Hello, this is my first file.\n")
+file.write("Python file handling is easy.")
+file.close()
+print("Data written successfully.")
+
+# Read File
+
+file = open("sample.txt", "r")
+data = file.read()
+file.close()
+print("File content is:")
+print(data)
+
+# Append File
+
+file = open("sample.txt", "a")
+file.write("\nThis line is appended.")
+file.close()
+print("Data appended successfully.")
+
+# Count Lines, Words, Characters
+
+f = open("file.txt", "r")
+data = f.read()
+lines = data.split("\n")
+words = data.split()
+chars = len(data)
+print("Lines:", len(lines))
+print("Words:", len(words))
+print("Characters:", chars)
+f.close()
+
+# Copy File
+
+file1 = open("sample.txt", "r")
+data = file1.read()
+file1.close()
+file2 = open("copy.txt", "w")
+file2.write(data)
+file2.close()
+print("File copied successfully.")
+
+# Division by Zero Exception
+a = int(input("Enter number: "))
+b = int(input("Enter number: "))
+try:
+    print(a / b)
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+# Invalid Input Exception
+
+try:
+    x = int(input("Enter number: "))
+    print(x)
+except ValueError:
+    print("Invalid input")
+
+# Try-Except-Finally
+
+try:
+    x = int(input("Enter number: "))
+    print(10 / x)
+except:
+    print("Error occurred")
+finally:
+    print("Done")
+
+# User Defined Exception
+
+class MyError(Exception):
+    pass
+x = int(input("Enter number: "))
+if x < 0:
+    raise MyError
+else:
+    print("Valid")
+
+# File Exception Handling
+
+try:
+    f = open("file.txt", "r")
+    print(f.read())
+    f.close()
+except:
+    print("File not found")
