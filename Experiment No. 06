@@ -1,0 +1,114 @@
+# Create Dictionary of Student Details
+
+name = input("Enter name: ")
+age = input("Enter age: ")
+course = input("Enter course: ")
+student = {"Name": name, "Age": age, "Course": course}
+print("Student Details:", student)
+
+# Access Keys, Values and Items
+
+d = {}
+n = int(input("Enter number of elements: "))
+for i in range(n):
+    key = input("Enter key: ")
+    value = input("Enter value: ")
+    d[key] = value
+print("Keys:", d.keys())
+print("Values:", d.values())
+print("Items:", d.items())
+
+# Add and Update Dictionary Elements
+
+d = {}
+n = int(input("Enter number of elements: "))
+for i in range(n):
+    key = input("Enter key: ")
+    value = input("Enter value: ")
+    d[key] = value
+new_key = input("Enter key to add/update: ")
+new_value = input("Enter value: ")
+d[new_key] = new_value
+print("Updated dictionary:", d)
+
+# Delete Elements from Dictionary
+
+d = {}
+n = int(input("Enter number of elements: "))
+for i in range(n):
+    key = input("Enter key: ")
+    value = input("Enter value: ")
+    d[key] = value
+del_key = input("Enter key to delete: ")
+if del_key in d:
+    del d[del_key]
+print("Updated dictionary:", d)
+
+# Word Frequency in Sentence
+
+s = input("Enter a sentence: ")
+words = s.split()
+freq = {}
+for word in words:
+    freq[word] = freq.get(word, 0) + 1
+print(freq)
+
+# Merge Two Dictionaries
+
+d1 = {}
+n1 = int(input("Enter elements in first dictionary: "))
+for i in range(n1):
+    key = input("Enter key: ")
+    value = input("Enter value: ")
+    d1[key] = value
+d2 = {}
+n2 = int(input("Enter elements in second dictionary: "))
+for i in range(n2):
+    key = input("Enter key: ")
+    value = input("Enter value: ")
+    d2[key] = value
+d1.update(d2)
+print("Merged dictionary:", d1)
+
+# Hexadecimal to Binary Using Dictionary
+
+hex_dict = {
+    '0': '0000', '1': '0001', '2': '0010', '3': '0011',
+    '4': '0100', '5': '0101', '6': '0110', '7': '0111',
+    '8': '1000', '9': '1001', 'A': '1010', 'B': '1011',
+    'C': '1100', 'D': '1101', 'E': '1110', 'F': '1111'
+}
+h = input("Enter hexadecimal number: ").upper()
+binary = ""
+for ch in h:
+    binary += hex_dict[ch]
+print("Binary:", binary)
+
+# Student with Highest Marks
+
+d = {}
+n = int(input("Enter number of students: "))
+for i in range(n):
+    name = input("Enter name: ")
+    marks = int(input("Enter marks: "))
+    d[name] = marks
+max_student = max(d, key=d.get)
+print("Top student:", max_student)
+print("Marks:", d[max_student])
+
+# Sort Dictionary by Keys and Values
+
+d = {}
+n = int(input("Enter number of elements: "))
+for i in range(n):
+    key = input("Enter key: ")
+    value = int(input("Enter value: "))
+    d[key] = value
+print("Sorted by keys:", dict(sorted(d.items())))
+print("Sorted by values:", dict(sorted(d.items(), key=lambda x: x[1])))
+
+# Dictionary Comprehension
+
+n = int(input("Enter number of elements: "))
+d = {i: i*i for i in range(1, n+1)}
+print("Dictionary:", d)
