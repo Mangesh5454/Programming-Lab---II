@@ -1,0 +1,90 @@
+# Even or Odd
+
+num = int(input("Enter a number: "))
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+# Largest of Three Numbers
+
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+c = float(input("Enter third number: "))
+
+if a >= b and a >= c:
+    print("Largest:", a)
+elif b >= a and b >= c:
+    print("Largest:", b)
+else:
+    print("Largest:", c)
+
+# Leap Year
+
+year = int(input("Enter a year: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("Leap Year")
+else:
+    print("Not a Leap Year")
+
+# Prime Number
+
+num = int(input("Enter a number: "))
+
+if num > 1:
+    for i in range(2, num):
+        if num % i == 0:
+            print("Not Prime")
+            break
+    else:
+        print("Prime")
+else:
+    print("Not Prime")
+
+# First n Natural Numbers
+
+n = int(input("Enter value of n: "))
+for i in range(1, n + 1):
+    print(i, end=" ")
+
+# Multiplication Table
+
+num = int(input("Enter a number: "))
+for i in range(1, 11):
+    print(num, "x", i, "=", num * i)
+
+# Factorial Using Loop
+
+num = int(input("Enter a number: "))
+fact = 1
+for i in range(1, num + 1):
+    fact *= i
+print("Factorial:", fact)
+
+# Fibonacci Series
+
+n = int(input("Enter number of terms: "))
+a = 0
+b = 1
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+# Count Digits in a Number
+
+num = int(input("Enter a number: "))
+count = 0
+while num != 0:
+    num //= 10
+    count += 1
+print("Number of digits:", count)
+
+# Reverse a Number
+
+num = int(input("Enter a number: "))
+rev = 0
+while num != 0:
+    digit = num % 10
+    rev = rev * 10 + digit
+    num //= 10
+print("Reversed number:", rev)
