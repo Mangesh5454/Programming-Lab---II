@@ -1,0 +1,91 @@
+# Define and Call a Function
+
+def greet():
+    print("Hello, Welcome")
+greet()
+
+# Pass Arguments to a Function
+
+def add(a, b):
+    print("Sum:", a + b)
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+add(x, y)
+
+# Return Multiple Values
+
+def calc(a, b):
+    return a + b, a - b
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+s, d = calc(x, y)
+print("Sum:", s)
+print("Difference:", d)
+
+# Factorial Using Function
+
+def fact(n):
+    f = 1
+    for i in range(1, n+1):
+        f *= i
+    return f
+n = int(input("Enter number: "))
+print("Factorial:", fact(n))
+
+# Factorial Using Recursion
+
+def fact(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * fact(n-1)
+n = int(input("Enter number: "))
+print("Factorial:", fact(n))
+
+# Fibonacci Using Recursion
+
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+n = int(input("Enter terms: "))
+for i in range(n):
+    print(fib(i), end=" ")
+
+# Lambda Function
+
+x = int(input("Enter number: "))
+square = lambda x: x * x
+print("Square:", square(x))
+
+# Built-in Functions
+
+lst = [int(x) for x in input("Enter numbers: ").split()]
+print("Sum:", sum(lst))
+print("Max:", max(lst))
+print("Min:", min(lst))
+print("Length:", len(lst))
+
+# Scope of Variables
+
+x = 10
+def func():
+    x = 5
+    print("Inside function:", x)
+func()
+print("Outside function:", x)
+
+# Prime Number Using Function
+
+def prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+n = int(input("Enter number: "))
+
+if prime(n):
+    print("Prime")
+else:
+    print("Not Prime")
