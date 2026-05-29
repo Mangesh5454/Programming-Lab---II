@@ -1,0 +1,119 @@
+loans = {}
+
+def apply_loan():
+    acc_no = input("Enter Account Number: ")
+
+    if acc_no in loans:
+        print("Loan already exists for this account!")
+        return
+
+    name = input("Enter Name: ")
+    amount = float(input("Enter Loan Amount: "))
+    rate = float(input("Enter Interest Rate (% per year): "))
+    time = float(input("Enter Time (in years): "))
+
+    interest = (amount * rate * time) / 100
+    total = amount + interest
+
+    loans[acc_no] = {
+        "name": name,
+        "principal": amount,
+        "rate": rate,
+        "time": time,
+        "interest": interest,
+        "total": total,
+        "paid": 0,
+        "status": "Active"
+    }
+
+    print("\n✅ Loan Approved!")
+    print(f"Total Payable Amount: ₹{total}")
+
+def view_loan():
+    acc_no = input("Enter Account Number: ")
+
+    if acc_no in loans:
+        loan = loans[acc_no]
+        print("\n--- LOAN DETAILS ---")
+        print(f"Name: {loan['name']}")
+        print(f"Loan Amount: ₹{loan['principal']}")
+        print(f"Interest: ₹{loan['interest']}")
+        print(f"Total Payable: ₹{loan['total']}")
+        print(f"Paid Amount: ₹{loan['paid']}")
+        print(f"Remaining: ₹{loan['total'] - loan['paid']}")
+        print(f"Status: {loan['status']}")
+    else:
+        print("No loan found!")
+
+def repay_loan():
+    acc_no = input("Enter Account Number: ")
+
+    if acc_no not in loans:
+        print("No loan found!")
+        return
+
+    loan = loans[acc_no]
+
+    if loan["status"] == "Closed":
+        print("Loan already closed!")
+        return
+
+    amount = float(input("Enter amount to repay: "))
+
+    if amount <= 0:
+        print("Invalid amount!")
+        return
+
+    remaining = loan["total"] - loan["paid"]
+
+    if amount > remaining:
+        print(f"You only need to pay ₹{remaining}")
+        return
+
+    loan["paid"] += amount
+    remaining -= amount
+
+    if remaining == 0:
+        loan["status"] = "Closed"
+        print("🎉 Loan fully repaid!")
+    else:
+        print(f"Payment successful! Remaining: ₹{remaining}")
+
+def list_loans():
+    if not loans:
+        print("No loans available!")
+        return
+
+    print("\n--- ALL LOANS ---")
+    for acc_no, loan in loans.items():
+        print(f"Acc No: {acc_no} | Name: {loan['name']} | Status: {loan['status']}")
+
+def show_menu():
+    print("\n--- LOAN SYSTEM MENU ---")
+    print("1. Apply for Loan")
+    print("2. View Loan Details")
+    print("3. Repay Loan")
+    print("4. List All Loans")
+    print("5. Exit")
+
+def main():
+    while True:
+        show_menu()
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            apply_loan()
+        elif choice == "2":
+            view_loan()
+        elif choice == "3":
+            repay_loan()
+        elif choice == "4":
+            list_loans()
+        elif choice == "5":
+            print("Thank you for using Loan System!")
+            break
+        else:
+            print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
